@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>City Delicatessen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>City Delicatessen</h1>
+            <h2>Order Form</h2>
+            <p id="currentDate"></p>
+        </header>
+
+        <form method="POST" action="">
+
+            <div>
+                <h3>Customer Information</h3>
+                <label for="firstName">First Name</label>
+                <input type="text" name="firstName" pattern="[a-zA-Z]{2,64}" title="Please enter Letter" id="firstName">
+
+                <label for="lastName">Last Name</label>
+                <input type="text" name="lastName" pattern="[a-zA-Z]{2,64}" title="Please enter Letter" id="lastName">
+
+                <label for="address">Address</label>
+                <input type="text" name="address" id="address">
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" name="phone" pattern="\d{3}-\d{3}-\d{4}" title="ex) 403-123-1234" id="phone">
+
+                <p><button id="modifyinfo" type="button" disabled="true" onclick="clientInfo()">Modify</button></p>
+            </div>
+
+            <div>
+                <h3>Select Pizza Type</h3>
+                <label class="pizzaType">
+                    <img src="assets/images/cheezy.jpg" alt="Super Cheesy">
+                    <input type="radio" name="pizzaType[]" value="Super Cheesy">
+                    <span>Super Cheesy</span>
+                </label>
+                <label class="pizzaType">
+                    <img src="assets/images/meaty.jpg" alt="Extra Meaty">
+                    <input type="radio" name="pizzaType[]" value="Extra Meaty">
+                    <span>Extra Meaty</span>
+                </label>
+                <label class="pizzaType">
+                    <img src="assets/images/veggie.jpg" alt="Really Veggy">
+                    <input type="radio" name="pizzaType[]" value="Really Veggy">
+                    <span>Really Veggy</span>
+                </label>
+
+                <h3>Select Pizza Size</h3>
+                <select name="pizzaSize" id="pizzaSize">
+                    <option value="">----------</option>
+                    <option value="Small">Small</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Large">Large</option>
+                    <option value="Extra Large">Extra Large</option>
+                </select>
+
+                <h3>Number of Pizzas</h3>
+                <input type="number" name="numOfPizza" id="numOfPizza" min="0" value="0">
+
+                <h3>Select Pizza Toppings</h3>
+                <label>
+                    <input type="checkbox" name="pizzaToppings[]" value="Extra Cheese">
+                    <span>Extra Cheese</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="pizzaToppings[]" value="Pepperoni">
+                    <span>Pepperoni</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="pizzaToppings[]" value="Mushrooms">
+                    <span>Mushrooms</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="pizzaToppings[]" value="Bacon">
+                    <span>Bacon</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="pizzaToppings[]" value="Olives">
+                    <span>Olives</span>
+                </label>
+
+                <p> <button id="addpizza" type="button" onclick="addPizza();">Add Pizza</button>
+                    <button id="modifypizza" type="button" disabled="true">Modify Pizza</button></p>
+            </div>
+
+            <div>
+
+                <h3>Select a Sandwich</h3>
+
+                <!-- <div class="sandwichType" id="sandwichType"> -->
+                    <label class="sandwichType">
+                        <img src="assets/images/veggieS.jpg" alt="All Garden Vegetarian">
+                        <input type="radio" name="sandwichType[]" value="7.50">
+                        <span>All Garden Vegetarian</span>
+                    </label>
+                    <label class="sandwichType">
+                        <img src="assets/images/beefS.jpg" alt="Big Beef on a Bun">
+                        <input type="radio" name="sandwichType[]" value="8.50">
+                        <span>Big Beef on a Bun</span>
+                    </label>
+                    <label class="sandwichType">
+                        <img src="assets/images/mixedS.jpg" alt="Mixed Gril">
+                        <input type="radio" name="sandwichType[]" value="9.50">
+                        <span>Mixed Grill</span>
+                    </label>
+                    <label class="sandwichType">
+                        <img src="assets/images/porkS.jpg" alt="Grilled Pork">
+                        <input type="radio" name="sandwichType[]" value="9.50">
+                        <span>Grilled Pork</span>
+                    </label>
+                <!-- </div> -->
+
+                <h3>Number of Sandwiches</h3>
+                <input type="number" name="numOfSandwich" id="numOfSandwich" min="0" value="0">
+
+                <p> <button id="addsandwich" type="button" onclick="addSandwich()">Add Sandwich</button>
+                    <button id="modifysandwich" type="button" disabled="true">Modify Sandwich</button></p>
+
+            </div>
+
+            <div>
+                <h3>Select a Drink</h3>
+                <label class="drinkType">
+                    <img id="drink" src="assets/images/cola.jpg" alt="Cola">
+                    <input type="radio" name="drinkType[]" value="Cola">
+                    <span>Cola</span>
+                </label>
+                <label class="drinkType">
+                    <img id="drink" src="assets/images/orange.jpg" alt="Orange">
+                    <input type="radio" name="drinkType[]" value="Orange">
+                    <span>Orange</span>
+                </label>
+                <label class="drinkType">
+                    <img id="drink" src="assets/images/lemon.jpg" alt="Lemon">
+                    <input type="radio" name="drinkType[]" value="Lemon">
+                    <span>Lemon</span>
+                </label>
+                <label class="drinkType">
+                    <img id="drink" src="assets/images/rootbeer.jpg" alt="Root Beer">
+                    <input type="radio" name="drinkType[]" value="Root Beer">
+                    <span>Root Beer</span>
+                </label>
+
+
+                <h3>Drink Size</h3>
+                <select name="drinkSize" id="drinkSize">
+                    <option value="">-----------</option>
+                    <option value="Small">Small</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Large">Large</option>
+                </select>
+
+                <h3>Number of Drinks</h3>
+                <input type="number" name="numOfDrinks" id="numOfDrinks" min="0" value="0">
+
+                <p><button id="adddrink" type="button" onclick="addDrink()">Add Drink</button>
+                    <button id="modifydrink" type="button" disabled="true">Modify Drink</button>
+                </p>
+            </div>
+
+        </form>
+
+        <!-- <div id="btnbox">
+            <button onclick="calcOrder();">Complete Order</button>
+        </div> -->
+
+    </div>
+
+
+    <section id="displayOrder"></section>
+    <script type="text/javascript" src="assets/scripts/order-form.js"></script>
+</body>
+
+</html>
